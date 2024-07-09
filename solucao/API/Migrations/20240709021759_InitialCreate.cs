@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -17,9 +16,8 @@ namespace API.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: false),
-                    DataNascimento = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Altura = table.Column<float>(type: "REAL", nullable: false)
+                    Nome = table.Column<string>(type: "TEXT", nullable: true),
+                    DataNasc = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -30,16 +28,17 @@ namespace API.Migrations
                 name: "IMCs",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Valor = table.Column<double>(type: "REAL", nullable: false),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Im = table.Column<double>(type: "REAL", nullable: false),
+                    Classificacao = table.Column<string>(type: "TEXT", nullable: true),
+                    Altura = table.Column<double>(type: "REAL", nullable: false),
                     Peso = table.Column<double>(type: "REAL", nullable: false),
-                    Altura = table.Column<double>(type: "REAL", nullable: false)
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_IMCs", x => x.Id);
+                    table.PrimaryKey("PK_IMCs", x => x.id);
                     table.ForeignKey(
                         name: "FK_IMCs_Usuarios_UsuarioId",
                         column: x => x.UsuarioId,

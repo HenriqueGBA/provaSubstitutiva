@@ -3,7 +3,7 @@
 ### Listar Imcs
 GET http://localhost:5291/api/imc/listar
 
-### Listar Imcs Por usuario
+### Listar Usuario por id
 GET http://localhost:5291/api/imc/listarPorUsuario/1
 
 ### Cadastrar Usuarios
@@ -12,8 +12,7 @@ Content-Type: application/json
 
 {
   "nome": "Henrique",
-  "altura": 1.70,
-  "peso": 65
+  "DataNasc" : "22/02/2005"
 }
 
 ### Criar IMC
@@ -21,8 +20,9 @@ POST http://localhost:5291/api/imc/cadastrar
 Content-Type: application/json
 
 {
-  "UsuarioId": 3,
-  "valor": 20.32
+  "UsuarioId": 1,
+  "altura": 1.80,
+  "peso": 85
 }
 
 ### Atualizar IMC
@@ -30,5 +30,6 @@ PUT http://localhost:5291/api/imc/atualizar/1
 Content-Type: application/json
 
 {
-  "valor": 19.32
+   "altura": 1.65,
+  "peso": 56
 }

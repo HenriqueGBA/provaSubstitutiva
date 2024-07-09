@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-
-namespace API;
+using API;
 public class AppDataContext : DbContext
 {
     public DbSet<Usuario> Usuarios { get; set; }
